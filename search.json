@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello!",
+    "section": "",
+    "text": "My name is Haoxue Xiang. I am a first year ScM student majoring in Biostatistics at Johns Hopkins Bloomberg School of Public Health.\nHere is a photo of my exotic shorthair cat^^:"
+  },
+  {
     "objectID": "example_analysis.html",
     "href": "example_analysis.html",
     "title": "Example_Analysis",
@@ -18,7 +25,7 @@
     "href": "example_analysis.html#reading-dataset-initial-data-wrangling",
     "title": "Example_Analysis",
     "section": "Reading Dataset & Initial Data Wrangling",
-    "text": "Reading Dataset & Initial Data Wrangling\n\nroller_coasters = read_csv(\"roller_coasters.csv\")\n\nRows: 2802 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (6): name, material_type, seating_type, manufacturer, park, status\ndbl (4): speed, height, length, num_inversions\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\naward_steel = read_csv(\"Golden_Ticket_Award_Winners_Steel.csv\")\n\nRows: 180 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): Name, Park, Location, Supplier\ndbl (4): Rank, Year Built, Points, Year of Rank\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nrc = roller_coasters |> \n  filter(material_type == 'Steel') |>\n  rename(Name = name) |> \n  inner_join(award_steel, by = \"Name\") |> \n  select(-c(Park, Supplier)) |>\n  separate(col = 'Location', into=c('City', 'State/Country'), sep=',')\n\nWarning: Expected 2 pieces. Additional pieces discarded in 26 rows [30, 32, 34,\n38, 40, 42, 68, 70, 72, 79, 81, 83, 98, 99, 100, 104, 106, 108, 137, 138, ...].\n\n\n\nknitr::kable(\n  rc[1:6, 1:6]\n)\n\n\n\n\nTable 1: Parts of Data After Wrangling\n\n\n\n\n\n\n\n\n\n\nName\nmaterial_type\nseating_type\nspeed\nheight\nlength\n\n\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nTop Thrill Dragster\nSteel\nSit Down\n192\n128\n853\n\n\nTop Thrill Dragster\nSteel\nSit Down\n192\n128\n853\n\n\n\n\n\n\n\n\n\n\n\nExpand To Learn More About Initial Data Wrangling Process\n\n\n\n\n\nWe only analyze steel roller coasters in this data analysis for simplicity, so we only select the roller coasters with steel material type. You can perform very similar analysis to wooden roller coasters. When we combine two datasets, there are some duplicated variables (park = Park, manufacturer = Supplier), so we remove them."
+    "text": "Reading Dataset & Initial Data Wrangling\n\nroller_coasters = read_csv(\"roller_coasters.csv\")\n\nRows: 2802 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (6): name, material_type, seating_type, manufacturer, park, status\ndbl (4): speed, height, length, num_inversions\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\naward_steel = read_csv(\"Golden_Ticket_Award_Winners_Steel.csv\")\n\nRows: 180 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): Name, Park, Location, Supplier\ndbl (4): Rank, Year Built, Points, Year of Rank\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nrc = roller_coasters |> \n  filter(material_type == 'Steel') |>\n  rename(Name = name) |> \n  inner_join(award_steel, by = \"Name\") |> \n  select(-c(Park, Supplier)) |>\n  separate(col = 'Location', into=c('City', 'State/Country'), sep=',')\n\nWarning: Expected 2 pieces. Additional pieces discarded in 26 rows [30, 32, 34,\n38, 40, 42, 68, 70, 72, 79, 81, 83, 98, 99, 100, 104, 106, 108, 137, 138, ...].\n\n\n\nknitr::kable(\n  rc[1:6, 1:6]\n)\n\n\n\n\nTable 1: Parts of Data After Wrangling\n\n\n\n\n\n\n\n\n\n\nName\nmaterial_type\nseating_type\nspeed\nheight\nlength\n\n\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nNemesis\nSteel\nInverted\n81\n13\n716\n\n\nTop Thrill Dragster\nSteel\nSit Down\n192\n128\n853\n\n\nTop Thrill Dragster\nSteel\nSit Down\n192\n128\n853\n\n\n\n\n\n\n\n\n\n\n\nExpand To Learn More About Initial Data Wrangling Process\n\n\n\n\n\nWe only analyze steel roller coasters in this data analysis for simplicity, so we only select the roller coasters with steel material type. You can perform very similar analysis to wooden roller coasters. When we combine two datasets, there are some duplicated variables (park = Park, manufacturer = Supplier), so we remove them."
   },
   {
     "objectID": "example_analysis.html#data-visualizations-for-analysis",
@@ -40,13 +47,6 @@
     "title": "Example_Analysis",
     "section": "List of Function Used",
     "text": "List of Function Used\ndplyr: filter, rename, select, inner_join, group_by, summarize, arrange, head, mutate, count\ntityr: separate\nggplot2: ggplot, geom_col, labs, theme, geom_boxplot, geom_point, geom_smooth, facet_wrap"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hello!",
-    "section": "",
-    "text": "My name is Haoxue Xiang. I am a first year ScM student majoring in Biostatistics at Johns Hopkins Bloomberg School of Public Health.\nHere is a photo of my exotic shorthair cat^^:"
   },
   {
     "objectID": "about.html",

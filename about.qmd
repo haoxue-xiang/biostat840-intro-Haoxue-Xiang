@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+I come from Beijing, China. Before going to the JHSPH, I graduated from University of Washington - Seattle campus, where I majored in Statistics. During my undergraduate study, I had several research experiences with my professors performing RNA-seq data analysis for genomic data and conducting statistical analyses for COVID-19 epidemiological data. I have not decide my exact research interests yet and may still need more time to explore multiple fields, but I am particularly interested in Statistical genetics now and hope to explore more in the future! During my spare time, I enjoy hiking, cooking, watching movies, and playing badminton.

@@ -1,0 +1,10 @@
+---
+title: Hello!
+---
+
+## Welcome to my website! :)
+My name is Haoxue Xiang. I am a first year ScM student majoring in Biostatistics at Johns Hopkins Bloomberg School of Public Health.
+
+Here is a photo of my exotic shorthair cat^^:
+
+![](IMG_0159.JPG)

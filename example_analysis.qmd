@@ -1,6 +1,8 @@
 ---
 title: "Example_Analysis"
 editor: visual
+bibliography: references.bib
+nocite: '@*'
 ---
 
 I found the Roller Coaster Data from Around the World dataset from [Kaggle](https://www.kaggle.com/datasets/thedevastator/roller-coaster-data-from-around-the-world?select=Golden_Ticket_Award_Winners_Steel.csv), which includes three seperate dataframes (Golden_Ticket_Award_Winners_Steel.csv, Golden_Ticket_Award_Winners_Wood.csv, and roller_coasters.csv). The data dictionary is also available in Kaggle [website](https://www.kaggle.com/datasets/thedevastator/roller-coaster-data-from-around-the-world?select=Golden_Ticket_Award_Winners_Steel.csv).
